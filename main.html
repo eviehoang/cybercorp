@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCorp | Innovating the Future</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background: #1f2833;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav a {
+            color: #66fcf1;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            padding: 40px;
+        }
+        .glitch {
+            font-size: 22px;
+            position: relative;
+            display: inline-block;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            width: 100%;
+            top: 0;
+            color: #ff0000;
+            background: black;
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0);
+        }
+        .glitch::before {
+            left: 2px;
+            animation: glitch-animation 2s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            animation: glitch-animation 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-animation {
+            0% { clip: rect(36px, 9999px, 57px, 0); }
+            50% { clip: rect(20px, 9999px, 40px, 0); }
+            100% { clip: rect(10px, 9999px, 30px, 0); }
+        }
+        .hidden-message {
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .hidden-message:hover {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        function checkPassword(event) {
+            event.preventDefault();
+            var password = document.getElementById("password").value;
+            if (password === "3x7%jL2#k8!pQ9") { // Placeholder password
+                window.location.href = "restricted.html";
+            } else {
+                alert("Access Denied.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        CyberCorp | Innovating the Future
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#careers">Careers</a>
+        <a href="#login">Employee Login</a>
+    </nav>
+    <div class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At CyberCorp, we push the limits of human potential...</p>
+            <p class="hidden-message">[Data corrupted] █████</p>
+        </section>
+        <section id="research">
+            <h2>Research & Development</h2>
+            <p>Advancing biomedical engineering, cognitive mapping, and cybernetics.</p>
+            <p class="glitch" data-text="Future of Humanity">Future of Humanity</p>
+        </section>
+        <section id="careers">
+            <h2>Join CyberCorp</h2>
+            <p>Apply today for a future beyond imagination.</p>
+        </section>
+        <section id="login">
+            <h2>Employee Login</h2>
+            <form onsubmit="checkPassword(event)">
+                <input type="password" id="password" placeholder="Enter Access Code">
+                <button type="submit">Login</button>
+            </form>
+            <p class="hidden-message">Unauthorized Access Detected.</p>
+        </section>
+    </div>
+</body>
+</html>
